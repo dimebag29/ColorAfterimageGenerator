@@ -10,7 +10,6 @@ const saveAJpg = document.getElementById("saveAJpg");
 const saveBPng = document.getElementById("saveBPng");
 const saveBJpg = document.getElementById("saveBJpg");
 
-// 保存時の処理にサフィックス（_A, _B）を渡すよう変更
 saveAPng.addEventListener("click", () => saveCanvas(canvasA, "png", "_A"));
 saveAJpg.addEventListener("click", () => saveCanvas(canvasA, "jpg", "_A"));
 
@@ -212,7 +211,7 @@ function updateImageB()
     ctxB.putImageData(imageData, 0, 0);
 }
 
-// suffix（"_A" または "_B"）を受け取るように変更
+// suffix（"_A" または "_B"）を受け取る
 function saveCanvas(canvas, type, suffix)
 {
     const link = document.createElement("a");
