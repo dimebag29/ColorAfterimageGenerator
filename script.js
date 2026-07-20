@@ -54,5 +54,23 @@ function updateImageA()
 
 function updateImageB()
 {
-    // 後で作る
+    canvasB.width = currentImage.width;
+    canvasB.height = currentImage.height;
+
+    ctxB.drawImage(currentImage, 0, 0);
+
+    const imageData = ctxB.getImageData(0, 0, canvasB.width, canvasB.height);
+
+    const data = imageData.data;
+
+    for (let i = 0; i < data.length; i += 4)
+    {
+        const gray = (data[i] + data[i + 1] + data[i + 2]) / 3;
+
+        data[i] = gray;
+        data[i + 1] = gray;
+        data[i + 2] = gray;
+    }
+
+    ctxB.putImageData(imageData, 0, 0);
 }
