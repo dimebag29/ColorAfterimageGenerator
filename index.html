@@ -1,14 +1,94 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Image Converter</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Image Converter</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
-    <h1>Hello GitHub Pages!</h1>
+<div class="container">
 
-    <p>サイトの準備ができました。</p>
+<h1>Image Converter</h1>
+
+<p>
+
+<input
+type="file"
+id="fileInput"
+accept="image/*">
+
+</p>
+
+<div class="preview-grid">
+
+<div class="card">
+
+<h2>元画像</h2>
+
+<canvas id="originalCanvas"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>変換画像A</h2>
+
+<canvas id="canvasA"></canvas>
+
+<br>
+
+<button id="saveAPng">
+
+PNG保存
+
+</button>
+
+<button id="saveAJpg">
+
+JPG保存
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>変換画像B</h2>
+
+<canvas id="canvasB"></canvas>
+
+<br>
+
+<button id="saveBPng">
+
+PNG保存
+
+</button>
+
+<button id="saveBJpg">
+
+JPG保存
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
