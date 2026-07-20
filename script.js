@@ -10,11 +10,12 @@ const saveAJpg = document.getElementById("saveAJpg");
 const saveBPng = document.getElementById("saveBPng");
 const saveBJpg = document.getElementById("saveBJpg");
 
-saveAPng.addEventListener("click", () => saveCanvas(canvasA, "png"));
-saveAJpg.addEventListener("click", () => saveCanvas(canvasA, "jpg"));
+// 保存時の処理にサフィックス（_A, _B）を渡すよう変更
+saveAPng.addEventListener("click", () => saveCanvas(canvasA, "png", "_A"));
+saveAJpg.addEventListener("click", () => saveCanvas(canvasA, "jpg", "_A"));
 
-saveBPng.addEventListener("click", () => saveCanvas(canvasB, "png"));
-saveBJpg.addEventListener("click", () => saveCanvas(canvasB, "jpg"));
+saveBPng.addEventListener("click", () => saveCanvas(canvasB, "png", "_B"));
+saveBJpg.addEventListener("click", () => saveCanvas(canvasB, "jpg", "_B"));
 
 const fileInput = document.getElementById("fileInput");
 
@@ -27,6 +28,7 @@ const ctxA = canvasA.getContext("2d");
 const ctxB = canvasB.getContext("2d");
 
 let currentImage = null;
+let currentFileName = "image"; // 入力されたファイル名を保持する変数を追加
 
 fileInput.addEventListener("change", loadImage);
 
@@ -34,12 +36,13 @@ function loadImage(event)
 {
     const file = event.target.files[0];
 
-    fileName.textContent = file.name;
-
     if (!file)
     {
         return;
     }
+
+    fileName.textContent = file.name;
+    currentFileName = file.name; // ここでファイル名を保存
 
     const img = new Image();
 
@@ -209,18 +212,25 @@ function updateImageB()
     ctxB.putImageData(imageData, 0, 0);
 }
 
-function saveCanvas(canvas, type)
+// suffix（"_A" または "_B"）を受け取るように変更
+function saveCanvas(canvas, type, suffix)
 {
     const link = document.createElement("a");
 
+    // 元のファイル名から拡張子を取り除く
+    const lastDotIndex = currentFileName.lastIndexOf('.');
+    const baseName = lastDotIndex !== -1 ? currentFileName.substring(0, lastDotIndex) : currentFileName;
+    
+    // サフィックスと新しい拡張子を結合してファイル名を作成
+    const newFileName = `${baseName}${suffix}.${type}`;
+    link.download = newFileName;
+
     if (type === "png")
     {
-        link.download = "image.png";
         link.href = canvas.toDataURL("image/png");
     }
     else
     {
-        link.download = "image.jpg";
         link.href = canvas.toDataURL("image/jpeg", 0.95);
     }
 
