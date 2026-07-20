@@ -74,3 +74,21 @@ function updateImageB()
 
     ctxB.putImageData(imageData, 0, 0);
 }
+
+function saveCanvas(canvas, type)
+{
+    const link = document.createElement("a");
+
+    if (type === "png")
+    {
+        link.download = "image.png";
+        link.href = canvas.toDataURL("image/png");
+    }
+    else
+    {
+        link.download = "image.jpg";
+        link.href = canvas.toDataURL("image/jpeg", 0.95);
+    }
+
+    link.click();
+}
