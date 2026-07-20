@@ -66,3 +66,51 @@ button:hover{
     background:#145ed2;
 
 }
+
+.notice{
+
+    margin:25px 0;
+
+    padding:18px;
+
+    background:#eaf6ff;
+
+    border-left:5px solid #2d7ef7;
+
+    border-radius:8px;
+
+    line-height:1.8;
+}
+
+#dropArea{
+
+    margin:25px 0;
+
+    padding:35px;
+
+    text-align:center;
+
+    border:3px dashed #999;
+
+    border-radius:12px;
+
+    background:white;
+
+    transition:.2s;
+}
+
+#dropArea.dragover{
+
+    background:#eaf6ff;
+
+    border-color:#2d7ef7;
+}
+
+#imageInfo{
+
+    margin-bottom:25px;
+
+    line-height:1.8;
+
+    font-weight:bold;
+}
