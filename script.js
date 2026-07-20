@@ -1,3 +1,15 @@
+const saveAPng = document.getElementById("saveAPng");
+const saveAJpg = document.getElementById("saveAJpg");
+
+const saveBPng = document.getElementById("saveBPng");
+const saveBJpg = document.getElementById("saveBJpg");
+
+saveAPng.addEventListener("click", () => saveCanvas(canvasA, "png"));
+saveAJpg.addEventListener("click", () => saveCanvas(canvasA, "jpg"));
+
+saveBPng.addEventListener("click", () => saveCanvas(canvasB, "png"));
+saveBJpg.addEventListener("click", () => saveCanvas(canvasB, "jpg"));
+
 const fileInput = document.getElementById("fileInput");
 
 const originalCanvas = document.getElementById("originalCanvas");
