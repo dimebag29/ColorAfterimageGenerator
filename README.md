@@ -1,1 +1,1 @@
-[# ColorAfterimageGenerator](https://dimebag29.github.io/ColorAfterimageGenerator/)
+https://dimebag29.github.io/ColorAfterimageGenerator/
