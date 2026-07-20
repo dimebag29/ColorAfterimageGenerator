@@ -1,3 +1,9 @@
+const dropArea = document.getElementById("dropArea");
+
+const fileName = document.getElementById("fileName");
+
+const imageSize = document.getElementById("imageSize");
+
 const saveAPng = document.getElementById("saveAPng");
 const saveAJpg = document.getElementById("saveAJpg");
 
@@ -28,6 +34,8 @@ function loadImage(event)
 {
     const file = event.target.files[0];
 
+    fileName.textContent = file.name;
+
     if (!file)
     {
         return;
@@ -44,6 +52,8 @@ function loadImage(event)
         updateImageA();
 
         updateImageB();
+
+        imageSize.textContent = img.width + " × " + img.height;
     };
 
     img.src = URL.createObjectURL(file);
@@ -216,3 +226,34 @@ function saveCanvas(canvas, type)
 
     link.click();
 }
+
+
+dropArea.addEventListener("dragover", function(event)
+{
+    event.preventDefault();
+
+    dropArea.classList.add("dragover");
+});
+
+dropArea.addEventListener("dragleave", function()
+{
+    dropArea.classList.remove("dragover");
+});
+
+dropArea.addEventListener("drop", function(event)
+{
+    event.preventDefault();
+
+    dropArea.classList.remove("dragover");
+
+    if(event.dataTransfer.files.length === 0)
+    {
+        return;
+    }
+
+    fileInput.files = event.dataTransfer.files;
+
+    fileInput.dispatchEvent(
+        new Event("change")
+    );
+});
