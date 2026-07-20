@@ -140,6 +140,37 @@ function updateImageA()
         data[i] = Math.round(r * 255.0);
         data[i + 1] = Math.round(g * 255.0);
         data[i + 2] = Math.round(b * 255.0);
+
+        //--------------------------------------------------
+        // ネガポジ反転
+        //--------------------------------------------------
+        
+        r = 1.0 - r;
+        g = 1.0 - g;
+        b = 1.0 - b;
+        
+        //--------------------------------------------------
+        // 彩度調整 (_Saturation = 1.2)
+        //--------------------------------------------------
+        
+        const saturation = 1.2;
+        
+        const gray =
+            r * 0.299 +
+            g * 0.587 +
+            b * 0.114;
+        
+        r = gray + (r - gray) * saturation;
+        g = gray + (g - gray) * saturation;
+        b = gray + (b - gray) * saturation;
+        
+        //--------------------------------------------------
+        // 範囲を0～1へ制限
+        //--------------------------------------------------
+        
+        r = Math.min(1, Math.max(0, r));
+        g = Math.min(1, Math.max(0, g));
+        b = Math.min(1, Math.max(0, b));
     }
 
     ctxA.putImageData(imageData, 0, 0);
