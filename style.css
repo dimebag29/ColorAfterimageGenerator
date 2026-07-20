@@ -29,10 +29,40 @@ h1{
 
 canvas{
     width:100%;
-    border:1px solid #ccc;
+    height:auto;
+
+    display:block;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+
+    background:#fff;
 }
 
 button{
+
     margin-top:10px;
-    margin-right:10px;
+
+    margin-right:8px;
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    background:#2d7ef7;
+
+    color:white;
+
+    font-size:15px;
+}
+
+button:hover{
+
+    background:#145ed2;
+
 }
