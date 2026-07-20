@@ -19,13 +19,54 @@ content="width=device-width,initial-scale=1.0">
 <div class="container">
 
 <h1>Image Converter</h1>
+<div class="notice">
+
+    🔒 このサイトはブラウザ内だけで画像を変換します。<br>
+
+    画像はサーバーへアップロードされません。
+
+</div>
 
 <p>
 
-<input
-type="file"
-id="fileInput"
-accept="image/*">
+<div id="dropArea">
+
+    <p>
+
+        画像をここへドラッグ＆ドロップ
+
+    </p>
+
+    <p>
+
+        または
+
+    </p>
+
+    <input
+        type="file"
+        id="fileInput"
+        accept="image/*">
+
+</div>
+
+<div id="imageInfo">
+
+    <p>
+
+        ファイル名：
+        <span id="fileName">-</span>
+
+    </p>
+
+    <p>
+
+        サイズ：
+        <span id="imageSize">-</span>
+
+    </p>
+
+</div>
 
 </p>
 
