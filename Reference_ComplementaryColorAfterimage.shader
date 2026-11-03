@@ -1,3 +1,13 @@
+/*
+==============================================================================================================
+作成者:dimebag29 (Author:dimebag29)
+
+このプログラムのライセンスはCC0 (クリエイティブ・コモンズ・ゼロ)です。いかなる権利も保有しません。
+(This program is licensed under CC0 (Creative Commons Zero). No rights reserved.)
+https://creativecommons.org/publicdomain/zero/1.0/
+==============================================================================================================
+*/
+
 Shader "ComplementaryColorAfterimage"
 {
     Properties
